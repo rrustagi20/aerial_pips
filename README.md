@@ -22,7 +22,8 @@ We will be making use of the NavBench framework to automatically run all experim
   - `scenarios`: Specify which scenarios to run tests in; by default the system will run tests in both environments featured in the submission
   - `set_size`: How many times should each scenario be run before switching to the next?
   - `num_sets`: How many times should the entire set of experiments be repeated? (This can be useful to ensure you have some results for each scenario even if you stop the experiments early.)
-2. Run the script: `rosrun aerial_pips run_all_experiments.py`
+2. Run `roscore`
+3. Run the script: `rosrun aerial_pips run_all_experiments.py`
   - The results of the experiments will be written to a `.csv` file in the selected `data_dir`. The name of the file is based on the date and time of the start of the experiments. If `record_rosbag` was set to `True`, rosbags will be saved to `data_dir/rosbags`.
   - The experiments run using a separate ROS core, so in principle they can run concurrently with whatever else you may be doing. However, in general it is best to minimize unnecessary loads on the computer while running the experiments, especially if you want to get accurate timing results.
   - If your computer is sufficiently powerful, you can speed up the benchmarking process by running multiple experiments in parallel. Just change the `num_masters` keyword arg at the bottom of the file. Monitor your load average to ensure that your computer isn't falling behind.
